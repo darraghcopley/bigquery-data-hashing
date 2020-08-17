@@ -31,9 +31,11 @@ status of the jobs can be monitored in the Cloud Console.
 ## Notes
 
 - I benchmarked running the script against several tables which contained >300M rows and were around 130GB in size 
-(in BigQuery storage). For these tables the queries executed successfully in around 2 minutes. 
+(in BigQuery storage). For these tables the hashing query jobs executed successfully and populated the target 
+development environment in around 2 minutes. 
 - The script will use the same dataset names from the source GCP project as target dataset names in the target 
 GCP project. An error will be thrown if these don't exist.
+- The script will use the same table names found in the source datasets as the destination table names within the target datsets
 - Data types for fields which are hashed are preserved. eg. A FLOAT type will be casted to a FLOAT type after being 
 passed through the hashing function
 - Data types included are \[INTEGER, FLOAT, NUMERIC, STRING, BYTES\]. Columns of other data types will not be altered, 
