@@ -52,8 +52,6 @@ def hash_table(client, table_ref, target_dataset: str, write_disposition: str):
             query_field_exps.append(mask_string(col=field.name))
         elif field.field_type == "BYTES":
             query_field_exps.append(mask_bytes(col=field.name))
-        elif field.field_type == "INTEGER":
-            query_field_exps.append(mask_integer(col=field.name))
         else:
             logging.info(f"No masking function for type {field.field_type}")
             query_field_exps.append(field.name)
