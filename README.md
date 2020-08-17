@@ -28,12 +28,14 @@ status of the jobs can be monitored in the Cloud Console.
 
 ## Notes
 
+- I benchmarked running the script against several tables which contained >300M rows and were around 130GB in size 
+(in BigQuery storage). For these tables the queries executed successfully in around 2 minutes. 
 - The script will use the same dataset names from the source GCP project as target dataset names in the target 
 GCP project. An error will be thrown if these don't exist.
 - Data types for fields which are hashed are preserved. eg. A FLOAT type will be casted to a FLOAT type after being 
 passed through the hashing function
 - Data types included are \[INTEGER, FLOAT, NUMERIC, STRING, BYTES\]. Columns of other data types will not be altered, 
-the original value will be outputted in this fields.
+the original value will be outputted in these fields.
 - The user/service account which will run this code must have read permissions on the source datasets in BigQuery and 
 also write permissions on the target datasets in BigQuery
 - This script can easily be ran in an Airflow DAG if there's a desire to populate a target environment regularly with 
