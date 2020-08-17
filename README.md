@@ -22,7 +22,9 @@ Run hashing script:
 
 `python hash-datasets.py --source_project SOURCE_PROJECT --target_project TARGET_PROJECT --datasets "[DATASET_1,DATASET_2]" --write_disposition WRITE_TRUNCATE`
 
-After running the script, you can view the query jobs in the GCP Cloud Console in BigQuery -> Query History. As 
+For explanations on write disposition, see [here](https://googleapis.dev/python/bigquery/latest/generated/google.cloud.bigquery.job.WriteDisposition.html)
+
+After running the script, you can view the query jobs in the GCP Cloud Console under BigQuery -> Query History. As 
 sometimes the queries can take several minutes, the script does not wait for them to succeed before exiting. The 
 status of the jobs can be monitored in the Cloud Console. 
 
